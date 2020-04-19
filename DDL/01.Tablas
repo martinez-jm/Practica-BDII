@@ -9,7 +9,7 @@ CREATE TABLE pruebaGit
 --tabla auditoria
 CREATE TABLE auditoria
 (
-    id int NOT NULL,
+    id int NOT NULL IDENTITY (1,1),
     fecha DATETIME,
     tabla varchar(50),
     id_afectado int,
