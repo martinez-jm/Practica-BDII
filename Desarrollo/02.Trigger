@@ -14,7 +14,7 @@ BEGIN
 	INSERT INTO auditoria (fecha,tabla,id_afectado,tipo_accion,usuario)
 	SELECT getdate(),'PruebaGit',id,@event_type,SYSTEM_USER
 	FROM INSERTED
-	UNION ALL
+	UNION
 	SELECT getdate(),'PruebaGit',id,@event_type,SYSTEM_USER
 	FROM DELETED
 END
