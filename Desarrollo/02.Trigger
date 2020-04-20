@@ -1,22 +1,20 @@
 CREATE TRIGGER trAuditoria
-ON pruebaGit
+ON practica
 FOR INSERT,UPDATE,DELETE
 AS
 BEGIN
-    DECLARE @event_type varchar(50) = 
-    CASE WHEN EXISTS(SELECT *
-        FROM inserted) AND EXISTS(SELECT *
-        FROM deleted) 
+	DECLARE @event_type varchar(50) = 
+    CASE WHEN EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted)
         THEN 'Update'
-    WHEN EXISTS(SELECT *
-    FROM inserted) 
+    WHEN EXISTS(SELECT * FROM inserted) 
         THEN 'Insert'
-    WHEN EXISTS(SELECT *
-    FROM deleted)
+    WHEN EXISTS(SELECT * FROM deleted)
         THEN 'Delete'
     END
-    INSERT INTO auditoria
-        (fecha,tabla,id_afectado,tipo_accion,usuario)
-    SELECT getdate(), 'PruebaGit', id, @event_type, SYSTEM_USER
-    FROM pruebaGit
+	INSERT INTO auditoria (fecha,tabla,id_afectado,tipo_accion,usuario)
+	SELECT getdate(),'PruebaGit',id,@event_type,SYSTEM_USER
+	FROM INSERTED
+	UNION ALL
+	SELECT getdate(),'PruebaGit',id,@event_type,SYSTEM_USER
+	FROM DELETED
 END

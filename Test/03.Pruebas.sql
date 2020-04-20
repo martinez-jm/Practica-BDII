@@ -1,12 +1,12 @@
-INSERT INTO pruebaGit
+INSERT INTO practica
 VALUES(1, 'Juan', 30)
 
-INSERT INTO pruebaGit
+INSERT INTO practica
 VALUES(2, 'Javier', 27)
 
-UPDATE pruebaGit 
-SET edad = 28
-WHERE nombre = 'Juan'
+UPDATE practica 
+SET columnaB = 28
+WHERE columnaA = 'Juan'
 
-DELETE FROM pruebaGit 
-WHERE nombre = 'Juan'
+DELETE FROM practica 
+WHERE columnaA = 'Juan'

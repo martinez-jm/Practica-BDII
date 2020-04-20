@@ -1,15 +1,15 @@
 --tabla ejemplo
-CREATE TABLE pruebaGit
-(
-    id int NOT NULL,
-    nombre varchar(50),
-    edad int
-)
+CREATE TABLE practica
+	(
+		id INT NOT NULL,
+		columnaA varchar(50),
+		columnaB int
+	)
 
 --tabla auditoria
 CREATE TABLE auditoria
 (
-    id int NOT NULL IDENTITY (1,1),
+    id int NOT NULL IDENTITY(1,1),
     fecha DATETIME,
     tabla varchar(50),
     id_afectado int,
